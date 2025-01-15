@@ -1,0 +1,18 @@
+To avoid the unexpected behavior, you should refactor your CSS to avoid mixing percentage and pixel units within the `calc()` function in nested contexts. One alternative approach is to use the `box-sizing` property.
+
+```css
+.container {
+  width: 50%;
+  padding: 10px;
+  border: 2px solid black;
+  box-sizing: border-box; /* Include padding and border in element's total width */
+}
+
+.inner {
+  width: 100%;
+  box-sizing: border-box;
+  background-color: lightblue;
+}
+```
+
+By setting `box-sizing: border-box;` on both `.container` and `.inner`, the padding and border are included within the element's total width.  This way, `width: 100%;` on `.inner` will ensure it fills the entire available space within the container, correctly accounting for padding and borders.
