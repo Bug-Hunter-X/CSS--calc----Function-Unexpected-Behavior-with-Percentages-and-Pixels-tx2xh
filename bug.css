@@ -1,0 +1,18 @@
+The following CSS code snippet demonstrates an uncommon error: unexpected behavior when using the `calc()` function with percentages and multiple units.
+
+```css
+.container {
+  width: 50%;
+  padding: 10px;
+  border: 2px solid black;
+}
+
+.inner {
+  width: calc(100% - 20px);
+  background-color: lightblue;
+}
+```
+
+In this example, one might expect `.inner` to have a width of 80% of the container's width (100% - 20px padding). However, the `calc()` function's subtraction of `20px` is relative to the computed width of `.inner`, not the container.
+
+This behavior can be counter-intuitive, particularly when working with responsive layouts or nested elements.
